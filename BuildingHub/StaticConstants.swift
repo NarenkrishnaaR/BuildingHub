@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+
+public class Constant {
+    
+     static let HELVETICA = "Helvetica Neue"
+        
+    
+    
+    
+}

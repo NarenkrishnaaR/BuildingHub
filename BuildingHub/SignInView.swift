@@ -10,17 +10,41 @@ import UIKit
 
 class SignInView: UIViewController {
 
+    @IBOutlet weak var lblForgotPassword: UILabel!
+    
+    
+    @IBOutlet weak var lblRememberMe: UILabel!
+  
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapRememberMeLablel(sender:)))
+        lblRememberMe.addGestureRecognizer(tapGesture)
+        lblRememberMe.isUserInteractionEnabled = true
     }
 
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func didTapRememberMeLablel(sender : UITapGestureRecognizer){
+        print("Working")
+       
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeView {
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+        
+//        self.performSegue(withIdentifier: "HomeVC", sender: self)
+        
+    }
 
     /*
     // MARK: - Navigation
